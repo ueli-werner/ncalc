@@ -654,6 +654,14 @@ namespace NCalc.Tests
         }
 
         [TestMethod]
+        public void ShouldDivideDecimalAndDouble()
+        {
+            var e = new Expression("x / 2.5");
+            e.Parameters["x"] = 1000M;
+            Assert.AreEqual(400M, e.Evaluate());
+        }
+
+        [TestMethod]
         public void IncorrectCalculation_NCalcAsync_Issue_4()
         {
             Expression e = new Expression("(1604326026000-1604325747000)/60000");
